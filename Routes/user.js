@@ -49,7 +49,7 @@ router.post("/login", (req, resp) => {
         if (!err) {
 
             if (result.length <= 0 || result[0].password != user.password) {
-                return resp.status(401).json({ message: "Incorrect Username and Password" });
+                return resp.status(401).json({ message: "Incorrect Email and Password" });
             }
             else if (result[0].status === "false") {
                 return resp.status(401).json({ message: "Wait for Admin approval " })
@@ -58,7 +58,7 @@ router.post("/login", (req, resp) => {
             else if (result[0].password == user.password) {
                 const response = { email: result[0].email, role: result[0].role };
                 const accessToken = jwt.sign(response, secret, { expiresIn: '1h' });
-                return resp.status(200).json({ token: accessToken, name: result[0].name });
+                return resp.status(200).json({ token: accessToken, name: result[0].name, role: result[0].role });
 
             }
             else {

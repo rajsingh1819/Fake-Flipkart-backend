@@ -114,4 +114,7 @@ router.put("/update/:id", upload.single('image'), (req, res) => {
         });
     });
 });
+
+
+
 module.exports = router;

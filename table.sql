@@ -1,3 +1,7 @@
+Create database ecom;
+
+
+-- User Table
 Create table user(
     id int primary key AUTO_INCREMENT,
     name varchar(250),
@@ -10,10 +14,11 @@ Create table user(
 
 
 )
-
+--ex:
 insert into user (name,email,password,status,role) values ("Admin", "Admin@gmail.com","admin","true","admin")
 
 
+-- Products Table
 Create table products(
     id int not null AUTO_INCREMENT,
     name varchar (250) not null,
